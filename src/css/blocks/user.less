@@ -1,0 +1,45 @@
+// main: ../main_style.less
+
+
+.user {
+    display: flex;
+}
+
+.user__avatar {
+    width: 57px;
+    height: 57px;
+
+    img {
+        border-radius: 50%;
+        display: inline-block;
+        max-width: 57px;
+
+        transition: transform .6s linear;
+
+        &:hover {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.user__content {
+    padding-left: 15px;
+    
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.user__name {
+    margin-top: 10px;
+    margin-bottom: 3px;
+    font-size: 1.16rem;
+    color: @black; 
+    font-weight: 700;
+}
+
+.user__prof {
+    font-size: 1.1rem;
+    color: fade(@black, 70%);
+}
+

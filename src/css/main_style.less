@@ -1,0 +1,56 @@
+// compress: true
+// Единица rem задаёт размер относительно размера шрифта
+
+@import "vars";
+
+html {
+    font-size: 15px; // 1 rem (root em) -> 15px
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: @black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+*,
+*:before,
+*:after{
+    box-sizing: border-box;
+    // всі paddings ідуть всередину
+    // не міняються розміри блоків
+}
+
+/* Blocks  Imports (withOut Calling Just Replace) */
+//@import "blocks/intro";
+@import "blocks/container";
+@import "blocks/header";
+@import "blocks/user";
+@import "blocks/nav";
+@import "blocks/btns";
+@import "blocks/intro";
+@import "blocks/social";
+@import "blocks/works";
+@import "blocks/portflolio";
+@import "blocks/work";
+@import "blocks/skills";
+@import "blocks/footer";
+@import "blocks/modal";
+@import "blocks/modal-work";
+@import "blocks/modal-contact";
+
+
+
+
+
+
+// Utils & Helpers
+@import "blocks/helpers";
+
+
+

@@ -1,0 +1,80 @@
+// main: ../main_style.less
+
+.modal__mask {
+    display: none;
+}
+
+.modal__contact_header {
+    margin-bottom: 2.5rem;
+}
+
+.contact__info {
+    margin: 2rem 0 3rem;
+    padding: 0;
+    list-style: none;
+
+    font-size: .94rem;
+    color: @black;
+    font-weight: 300;
+}
+
+.contact__info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: .75rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.contact__info-icon {
+    margin-right: .75rem;
+    width: 25px;
+    height: 25px;
+}
+
+// Form
+
+.form__group {
+    margin-bottom: 1.8rem;
+}
+
+.form__label {
+    display: inline-block;
+    margin-bottom: .6rem;
+
+    font-size: .8rem;
+    color: @black;
+    font-weight: 700;
+}
+
+.form__input,
+.form__textarea {
+    display: block;
+    width: 100%;
+    padding: 1.3rem 1.8rem;
+
+    border: 1px solid fade(#707070, 30%);
+    border-radius: 1.8rem;
+
+    font-family: inherit;
+    font-size: .8rem;
+    line-height: 1.2;
+    font-weight: 300;
+    color: @black;
+
+    &:focus {
+        outline: none;
+        border-color: #36abc7;
+    }
+
+    &::placeholder {
+        color: @black;
+    }
+}
+
+.form__textarea {
+    height: 200px;
+    resize: none;
+}
