@@ -2,6 +2,86 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/modules/formsPostOnServ.js":
+/*!*******************************************!*\
+  !*** ./src/js/modules/formsPostOnServ.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+////////    FORMS  (L 5)     ///////////
+
+const formsPostOnServ = (  ) => {
+    console.log("formsPostOnServ.js Connected...");
+
+    const formsArr  = document.querySelectorAll('form'),
+          inputsArr = document.querySelectorAll('input');
+
+    //console.dir(formsArr);
+
+    const messages = {
+        loading : 'Data is Loading...',
+        success : 'Successfully Loaded !',
+        error   : 'An Errrrror Ocured !!!!'
+    };
+
+    // PREVENT INPUT LETTERS IN PHONE FIELD
+    //import prevLettInp from './additional/prevLettInp';
+    //prevLettInp('input[name="user_phone"]'); // !!!
+
+    // POST DATA f()
+    const postData = async( url, data) => {
+        // Loading Message (On prev Created Div)
+        document.querySelector('.messageDiv').textContent = messages.loading;
+
+        let result = await fetch( url, 
+            {
+                method: 'POST',
+                body: data
+            });
+        return await result.text();
+    }
+
+    formsArr.forEach( formItem => {
+        formItem.addEventListener( 'submit', (e) => {  // !!! 'submit'  —>  e.preventDefault();
+            e.preventDefault();
+
+            // MESSAGE EL CREATION
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('messageDiv');
+            formItem.appendChild(messageDiv);
+
+            // MAKE FormData OBJ
+            const formData = new FormData(formItem);
+            
+            // POST Data
+            postData('mail.php' , formData)
+            .then( res => {
+                console.log(res);
+                messageDiv.textContent = messages.success;
+            })
+            .catch( () => { messageDiv.textContent = messages.error })
+            .finally( () => {
+                inputsArr.forEach( input => {
+                    input.value = ''; // Clear Form Inputs
+                })
+                setTimeout( () => {
+                    messageDiv.remove();
+                }, 3000);
+            })
+    
+        })
+    })
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (formsPostOnServ);
+
+/***/ }),
+
 /***/ "./src/js/modules/showModalWind.js":
 /*!*****************************************!*\
   !*** ./src/js/modules/showModalWind.js ***!
@@ -18,15 +98,15 @@ const showModalWind = () => {
     console.log("showModalWind.js Connected...");
 
     const openModalWind = (modal) => {
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
         
-        document.body.classList.add('modal-open');  // BootStrap class
+        //document.body.classList.add('modal-open');  // BootStrap class
         document.body.style.overflow = 'hidden';
     }
     const closeModalWind = (modal) => {
         modal.style.display = 'none';
 
-        document.body.classList.remove('modal-open'); // BootStrap class
+        //document.body.classList.remove('modal-open'); // BootStrap class
         document.body.style.overflow = '';
     }
 
@@ -136,13 +216,16 @@ var __webpack_exports__ = {};
   \*************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/showModalWind */ "./src/js/modules/showModalWind.js");
+/* harmony import */ var _modules_formsPostOnServ__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/formsPostOnServ */ "./src/js/modules/formsPostOnServ.js");
 console.log('main.js Connected...')
 
 ;
 
+
 window.addEventListener('DOMContentLoaded', () => {
 
     (0,_modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__.default)();
+    (0,_modules_formsPostOnServ__WEBPACK_IMPORTED_MODULE_1__.default)();
 })
 })();
 
