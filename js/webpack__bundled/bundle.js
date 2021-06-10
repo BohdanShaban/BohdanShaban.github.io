@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/modules/formsPostOnServ.js":
-/*!*******************************************!*\
-  !*** ./src/js/modules/formsPostOnServ.js ***!
-  \*******************************************/
+/***/ "./js/modules/formsPostOnServ.js":
+/*!***************************************!*\
+  !*** ./js/modules/formsPostOnServ.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -82,10 +82,10 @@ const formsPostOnServ = (  ) => {
 
 /***/ }),
 
-/***/ "./src/js/modules/showModalWind.js":
-/*!*****************************************!*\
-  !*** ./src/js/modules/showModalWind.js ***!
-  \*****************************************/
+/***/ "./js/modules/showModalWind.js":
+/*!*************************************!*\
+  !*** ./js/modules/showModalWind.js ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -211,12 +211,12 @@ const showModalWind = () => {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!*************************!*\
-  !*** ./src/js/index.js ***!
-  \*************************/
+/*!*********************!*\
+  !*** ./js/index.js ***!
+  \*********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/showModalWind */ "./src/js/modules/showModalWind.js");
-/* harmony import */ var _modules_formsPostOnServ__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/formsPostOnServ */ "./src/js/modules/formsPostOnServ.js");
+/* harmony import */ var _modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/showModalWind */ "./js/modules/showModalWind.js");
+/* harmony import */ var _modules_formsPostOnServ__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/formsPostOnServ */ "./js/modules/formsPostOnServ.js");
 console.log('main.js Connected...')
 
 ;
