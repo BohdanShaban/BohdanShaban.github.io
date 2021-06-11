@@ -2,6 +2,47 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./js/modules/JQueryFormPost.js":
+/*!**************************************!*\
+  !*** ./js/modules/JQueryFormPost.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+
+const JQueryFormPost = (  ) => {
+    console.log("JQueryFormPost.js Connected...");
+
+	$(document).ready(function() {
+
+		//E-mail Ajax Send
+		$("form").submit(function() { //Change
+			var th = $(this);
+			$.ajax({
+				type: "POST",
+				url: "mail.php", //Change
+				data: th.serialize()
+			}).done(function() {
+				alert("Thank you!");
+				setTimeout(function() {
+					// Done Functions
+					th.trigger("reset");
+				}, 1000);
+			});
+			return false;
+		});
+
+	});
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (JQueryFormPost);
+
+/***/ }),
+
 /***/ "./js/modules/formsPostOnServ.js":
 /*!***************************************!*\
   !*** ./js/modules/formsPostOnServ.js ***!
@@ -217,15 +258,19 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/showModalWind */ "./js/modules/showModalWind.js");
 /* harmony import */ var _modules_formsPostOnServ__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/formsPostOnServ */ "./js/modules/formsPostOnServ.js");
+/* harmony import */ var _modules_JQueryFormPost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/JQueryFormPost */ "./js/modules/JQueryFormPost.js");
 console.log('main.js Connected...')
 
 ;
 
 
+
+
 window.addEventListener('DOMContentLoaded', () => {
 
     (0,_modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__.default)();
-    (0,_modules_formsPostOnServ__WEBPACK_IMPORTED_MODULE_1__.default)();
+    //formsPostOnServ();
+    (0,_modules_JQueryFormPost__WEBPACK_IMPORTED_MODULE_2__.default)();
 })
 })();
 
