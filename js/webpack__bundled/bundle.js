@@ -2,6 +2,88 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./js/modules/filtrationOfWorks.js":
+/*!*****************************************!*\
+  !*** ./js/modules/filtrationOfWorks.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+
+const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
+    console.log("filtrationOfWorks.js Connected...");
+
+    // MENU BTNS Filtration VARS :
+        const menu = document.querySelector('.works__nav'),
+            allBtnsArr = document.querySelectorAll('.works__nav > a'),
+
+            allBtn = menu.querySelector('.all'),
+            websitesBtn = menu.querySelector('.websites'),
+            reactBtn = menu.querySelector('.react'),
+            backendBtn = menu.querySelector('.backend');
+    //
+
+    // PORTFOLIO Works VARS :
+    const wrapper = document.querySelector('.portfolio'),
+
+            allDivs = wrapper.querySelectorAll('.all'),
+            websitesDivs = wrapper.querySelectorAll('.websites'),
+            reactDivs = wrapper.querySelectorAll('.react'),
+            beckendDivs = wrapper.querySelectorAll('.backend');
+    //
+    //console.dir(`allBtnsArr: ${allBtnsArr}`);
+
+
+    const filterElms = (elmsArr) => {
+
+        // Hide All
+        allDivs.forEach( el => {
+            el.style.display = 'none';
+            //el.classList.remove('animated', 'fadeInUp');
+        });
+        // notExistCurrently.style.display = 'none';
+        // notExistCurrently.classList.remove('animated', 'fadeInUp');
+
+        // Show Certain
+        if(elmsArr) {
+            elmsArr.forEach( el => {
+                el.style.display = 'block';
+                //el.classList.add('animated', 'fadeInUp');
+            })
+        } else {
+            // notExistCurrently.style.display = 'block';
+            // notExistCurrently.classList.add('animated', 'fadeInUp');
+        }
+        
+    }
+    // EVENT LISTENERS
+    allBtn.addEventListener( 'click' , () => { filterElms(allDivs) } );
+    websitesBtn.addEventListener( 'click' , () => { filterElms(websitesDivs) } );
+    reactBtn.addEventListener( 'click' , () => { filterElms(reactDivs) } );
+    backendBtn.addEventListener( 'click' , () => { filterElms(beckendDivs) } );
+    // Not Exist Currently
+    // grandyBtn.addEventListener( 'click' , () => { filterElms() } );
+    // grandFathBtn.addEventListener( 'click' , () => { filterElms() } );
+
+    // MENU ELMS CLICK
+    menu.addEventListener( 'click', (e) => {
+        const target = e.target;
+
+        if(target && target.tagName === 'A') {
+
+            allBtnsArr.forEach( menuItem => { menuItem.classList.remove('active'); })
+            target.classList.add('active');
+        }
+    })
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (filtrationOfWorks);
+
+/***/ }),
+
 /***/ "./js/modules/showModalWind.js":
 /*!*************************************!*\
   !*** ./js/modules/showModalWind.js ***!
@@ -136,17 +218,19 @@ var __webpack_exports__ = {};
   \*********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/showModalWind */ "./js/modules/showModalWind.js");
+/* harmony import */ var _modules_filtrationOfWorks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/filtrationOfWorks */ "./js/modules/filtrationOfWorks.js");
 console.log('main.js Connected...')
 
 ;
 //import formsPostOnServ from './modules/formsPostOnServ'; // PHP Can't be Used -> FormsPree Account was created & Used
 
 
+
 window.addEventListener('DOMContentLoaded', () => {
 
     (0,_modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__.default)();
     //formsPostOnServ(); // PHP Can't be Used -> FormsPree Account was created & Used
-    //formsPostOnServ(); // PHP Can't be Used -> FormsPree Account was created & Used
+    (0,_modules_filtrationOfWorks__WEBPACK_IMPORTED_MODULE_1__.default)();
 
 })
 })();
