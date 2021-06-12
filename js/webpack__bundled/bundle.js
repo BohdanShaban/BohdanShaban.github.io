@@ -2,128 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./js/modules/JQueryFormPost.js":
-/*!**************************************!*\
-  !*** ./js/modules/JQueryFormPost.js ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-
-const JQueryFormPost = (  ) => {
-    console.log("JQueryFormPost.js Connected...");
-
-	$(document).ready(function() {
-
-		//E-mail Ajax Send
-		$("form").submit(function() { //Change
-			var th = $(this);
-			$.ajax({
-				type: "POST",
-				url: "mail.php", //Change
-				data: th.serialize()
-			}).done(function() {
-				alert("Thank you!");
-				setTimeout(function() {
-					// Done Functions
-					th.trigger("reset");
-				}, 1000);
-			});
-			return false;
-		});
-
-	});
-
-	
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (JQueryFormPost);
-
-/***/ }),
-
-/***/ "./js/modules/formsPostOnServ.js":
-/*!***************************************!*\
-  !*** ./js/modules/formsPostOnServ.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-////////    FORMS  (L 5)     ///////////
-
-const formsPostOnServ = (  ) => {
-    console.log("formsPostOnServ.js Connected...");
-
-    const formsArr  = document.querySelectorAll('form'),
-          inputsArr = document.querySelectorAll('input');
-
-    //console.dir(formsArr);
-
-    const messages = {
-        loading : 'Data is Loading...',
-        success : 'Successfully Loaded !',
-        error   : 'An Errrrror Ocured !!!!'
-    };
-
-    // PREVENT INPUT LETTERS IN PHONE FIELD
-    //import prevLettInp from './additional/prevLettInp';
-    //prevLettInp('input[name="user_phone"]'); // !!!
-
-    // POST DATA f()
-    const postData = async( url, data) => {
-        // Loading Message (On prev Created Div)
-        document.querySelector('.messageDiv').textContent = messages.loading;
-
-        let result = await fetch( url, 
-            {
-                method: 'POST',
-                body: data
-            });
-        return await result.text();
-    }
-
-    formsArr.forEach( formItem => {
-        formItem.addEventListener( 'submit', (e) => {  // !!! 'submit'  —>  e.preventDefault();
-            e.preventDefault();
-
-            // MESSAGE EL CREATION
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('messageDiv');
-            formItem.appendChild(messageDiv);
-
-            // MAKE FormData OBJ
-            const formData = new FormData(formItem);
-            
-            // POST Data
-            postData('mail.php' , formData)
-            .then( res => {
-                console.log(res);
-                messageDiv.textContent = messages.success;
-            })
-            .catch( () => { messageDiv.textContent = messages.error })
-            .finally( () => {
-                inputsArr.forEach( input => {
-                    input.value = ''; // Clear Form Inputs
-                })
-                setTimeout( () => {
-                    messageDiv.remove();
-                }, 3000);
-            })
-    
-        })
-    })
-
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (formsPostOnServ);
-
-/***/ }),
-
 /***/ "./js/modules/showModalWind.js":
 /*!*************************************!*\
   !*** ./js/modules/showModalWind.js ***!
@@ -258,20 +136,16 @@ var __webpack_exports__ = {};
   \*********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/showModalWind */ "./js/modules/showModalWind.js");
-/* harmony import */ var _modules_formsPostOnServ__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/formsPostOnServ */ "./js/modules/formsPostOnServ.js");
-/* harmony import */ var _modules_JQueryFormPost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/JQueryFormPost */ "./js/modules/JQueryFormPost.js");
 console.log('main.js Connected...')
 
 ;
-
-
+//import formsPostOnServ from './modules/formsPostOnServ';
 
 
 window.addEventListener('DOMContentLoaded', () => {
 
     (0,_modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__.default)();
     //formsPostOnServ();
-    (0,_modules_JQueryFormPost__WEBPACK_IMPORTED_MODULE_2__.default)();
 })
 })();
 
