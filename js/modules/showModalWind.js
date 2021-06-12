@@ -51,7 +51,7 @@ const showModalWind = () => {
     bindModalWind( '.hire_me_btn',  '.popup__hire_me',  '.popup__hire_me .modal__close' );
     //bindModalWind( '.phone_link',  '.popup',  '.popup .popup_close' );
 
-    showModalByTime( '.hire_me_btn',  30000 );
+    showModalByTime( '.popup__hire_me',  10000 );
 }
 
 export default showModalWind;
