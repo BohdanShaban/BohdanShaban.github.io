@@ -65,7 +65,7 @@ const showModalWind = () => {
     bindModalWind( '.hire_me_btn',  '.popup__hire_me',  '.popup__hire_me .modal__close' );
     //bindModalWind( '.phone_link',  '.popup',  '.popup .popup_close' );
 
-    showModalByTime( '.popup__hire_me',  10000 );
+    //showModalByTime( '.popup__hire_me',  10000 );
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showModalWind);
