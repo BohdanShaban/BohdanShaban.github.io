@@ -146,6 +146,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     (0,_modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__.default)();
     //formsPostOnServ(); // PHP Can't be Used -> FormsPree Account was created & Used
+    //formsPostOnServ(); // PHP Can't be Used -> FormsPree Account was created & Used
+
 })
 })();
 
