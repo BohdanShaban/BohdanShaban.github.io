@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="css/main_style.css"> 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/libs/animate.css">
 
+    
     <title> My Portfolio </title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -44,8 +46,8 @@
             </div>
 
             <nav class="nav">
-                <a class="nav__link" href="#">Works</a>
-                <a class="nav__link" href="#">Skills</a>
+                <a class="nav__link" href="#works">Works</a>
+                <a class="nav__link" href="#skills">Skills</a>
                 <a class="nav__link" href="resume.pdf" target="_blank">Resume</a>
                 <a class="nav__link  nav__link--btn  hire_me_btn" href="#">hire me</a>
             </nav>
@@ -95,7 +97,7 @@
 </section>
 
 <!-- Works -->
-<div class="works">
+<div class="works" id="works">
     <div class="container">
 
         <div class="works__pannel">
@@ -166,7 +168,7 @@
         </div> <!-- /.portfolio --> 
         
         <div class="text-center">
-            <a class="btn  btn--sm" href="#">LOAD MORE WORKS</a>
+            <a class="btn  btn--sm" href="#!">LOAD MORE WORKS</a>
         </div>
 
     </div>
@@ -174,7 +176,7 @@
 
 
 <!-- Skills -->
-<section class="skills">
+<section class="skills" id="skills">
     <div class="container">
 
         <div class="skills_header">
@@ -460,6 +462,13 @@
 
     </div> <!-- modal__dialog -->
 </div> <!-- modal__mask -->
+
+<!-- UP Arrow For Scrool to Begining -->
+<a href="#up" class="pageup">
+    <svg class="up" viewBox="0 0 26 26" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M26 0H0V26H26V0ZM4.6593 17.7519L13.1233 10.33L21.5873 17.7519L22.9059 16.2481L13.7826 8.24813L13.1233 7.67L12.464 8.24813L3.3407 16.2481L4.6593 17.7519Z" fill="black"/>
+    </svg>
+</a>
 
     <script src="/js/webpack__bundled/bundle.js"></script>    
 

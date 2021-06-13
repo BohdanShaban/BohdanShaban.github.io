@@ -43,4 +43,33 @@
         font-weight: 700;
         border-width: 2px;
     }
+
+    &--work {
+        padding: .50rem 1.4rem;
+
+        margin: 0 1rem;
+        text-decoration: none;
+
+        border: 2px solid #2B2A2C;
+        border-radius: 20px;
+        transition: background-color .2s linear,color .2s linear;
+        cursor: pointer;
+
+        font-size: .80rem;
+        color: #2B2A2C;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        &:hover {
+            background-color: @black;
+            box-shadow: 2px 2px 10px fade(#000, 24%);
+            color: @white;
+        }
+
+        &.active { // !!! WithOut Space
+            background-color: @black;
+            box-shadow: 2px 2px 10px fade(#000, 24%);
+            color: @white;
+        }
+    }
 }

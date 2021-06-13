@@ -2,7 +2,7 @@
 const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
     console.log("filtrationOfWorks.js Connected...");
 
-    // MENU BTNS Filtration VARS :
+    //// MENU BTNS Filtration VARS :
         const menu = document.querySelector('.works__nav'),
             allBtnsArr = document.querySelectorAll('.works__nav > a'),
 
@@ -12,7 +12,7 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
             backendBtn = menu.querySelector('.backend');
     //
 
-    // PORTFOLIO Works VARS :
+    //// PORTFOLIO Works VARS :
     const wrapper = document.querySelector('.portfolio'),
 
             allDivs = wrapper.querySelectorAll('.all'),
@@ -28,7 +28,7 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
         // Hide All
         allDivs.forEach( el => {
             el.style.display = 'none';
-            //el.classList.remove('animated', 'fadeInUp');
+            el.classList.remove('animated', 'fadeInUp');
         });
         // notExistCurrently.style.display = 'none';
         // notExistCurrently.classList.remove('animated', 'fadeInUp');
@@ -37,7 +37,7 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
         if(elmsArr) {
             elmsArr.forEach( el => {
                 el.style.display = 'block';
-                //el.classList.add('animated', 'fadeInUp');
+                el.classList.add('animated', 'fadeInUp');
             })
         } else {
             // notExistCurrently.style.display = 'block';
@@ -45,7 +45,8 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
         }
         
     }
-    // EVENT LISTENERS
+
+    //// EVENT LISTENERS
     allBtn.addEventListener( 'click' , () => { filterElms(allDivs) } );
     websitesBtn.addEventListener( 'click' , () => { filterElms(websitesDivs) } );
     reactBtn.addEventListener( 'click' , () => { filterElms(reactDivs) } );

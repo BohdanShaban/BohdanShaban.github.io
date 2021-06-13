@@ -16,7 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
     console.log("filtrationOfWorks.js Connected...");
 
-    // MENU BTNS Filtration VARS :
+    //// MENU BTNS Filtration VARS :
         const menu = document.querySelector('.works__nav'),
             allBtnsArr = document.querySelectorAll('.works__nav > a'),
 
@@ -26,7 +26,7 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
             backendBtn = menu.querySelector('.backend');
     //
 
-    // PORTFOLIO Works VARS :
+    //// PORTFOLIO Works VARS :
     const wrapper = document.querySelector('.portfolio'),
 
             allDivs = wrapper.querySelectorAll('.all'),
@@ -42,7 +42,7 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
         // Hide All
         allDivs.forEach( el => {
             el.style.display = 'none';
-            //el.classList.remove('animated', 'fadeInUp');
+            el.classList.remove('animated', 'fadeInUp');
         });
         // notExistCurrently.style.display = 'none';
         // notExistCurrently.classList.remove('animated', 'fadeInUp');
@@ -51,7 +51,7 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
         if(elmsArr) {
             elmsArr.forEach( el => {
                 el.style.display = 'block';
-                //el.classList.add('animated', 'fadeInUp');
+                el.classList.add('animated', 'fadeInUp');
             })
         } else {
             // notExistCurrently.style.display = 'block';
@@ -59,7 +59,8 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
         }
         
     }
-    // EVENT LISTENERS
+
+    //// EVENT LISTENERS
     allBtn.addEventListener( 'click' , () => { filterElms(allDivs) } );
     websitesBtn.addEventListener( 'click' , () => { filterElms(websitesDivs) } );
     reactBtn.addEventListener( 'click' , () => { filterElms(reactDivs) } );
@@ -81,6 +82,133 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (filtrationOfWorks);
+
+/***/ }),
+
+/***/ "./js/modules/scrollingSlow.js":
+/*!*************************************!*\
+  !*** ./js/modules/scrollingSlow.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//import { ids } from "webpack";
+
+const scrollingSlow = ( upArrowSel ) => {
+    console.log("scrollingSlow.js Connected...");
+
+    // Up Arrow Appears When Scroll a Litle Down
+    // const upArrow = document.querySelector(upArrowSel);
+
+    // window.addEventListener( 'scroll', () => {
+
+    //     if( document.documentElement.scrollTop > 600 ) { // !!!
+    //         upArrow.classList.add('animated', 'fadeIn');
+    //         upArrow.classList.remove('fadeOut');
+    //     } else {
+    //         upArrow.classList.remove('fadeIn');
+    //         upArrow.classList.add('fadeOut');
+    //     }
+    // })
+
+    // SCROLLING WITH requestAnimationFrame
+
+    let links = document.querySelectorAll('[href^="#"]'), // ^ —> Must Be at Str BEGINING !!!
+        speed = 0.3;
+    //
+ 
+    links.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            let widthTop = document.documentElement.scrollTop,
+                hash = this.hash,
+                toBlock = document.querySelector(hash).getBoundingClientRect().top,
+                start = null;
+
+            requestAnimationFrame(step);
+
+            function step(time) {
+                if (start === null) {
+                    start = time;
+                }
+
+                let progress = time - start,
+                    r = (toBlock < 0 ? Math.max(widthTop - progress/speed, widthTop + toBlock) : Math.min(widthTop + progress/speed, widthTop + toBlock));
+
+                    document.documentElement.scrollTo(0, r);
+
+                if (r != widthTop + toBlock) {
+                    requestAnimationFrame(step);
+                } else {
+                    location.hash = hash;
+                }
+            }
+        });
+    });
+
+
+    // SCROLLING WITH PURE JS
+
+    // const element = document.documentElement,
+    //       body = document.body;
+
+    // const calcScroll = () => {
+    //     upElem.addEventListener('click', function(event) {
+    //         let scrollTop = Math.round(body.scrollTop || element.scrollTop);
+
+    //         if (this.hash !== '') {
+    //             event.preventDefault();
+    //             let hashElement = document.querySelector(this.hash),
+    //                 hashElementTop = 0;
+
+    //             while (hashElement.offsetParent) {
+    //                 hashElementTop += hashElement.offsetTop;
+    //                 hashElement = hashElement.offsetParent;
+    //             }
+
+    //             hashElementTop = Math.round(hashElementTop);
+    //             smoothScroll(scrollTop, hashElementTop, this.hash);
+    //         }
+    //     });
+    // };
+
+    // const smoothScroll = (from, to, hash) => {
+    //     let timeInterval = 1,
+    //         prevScrollTop,
+    //         speed;
+
+    //     if (to > from) {
+    //         speed = 30;
+    //     } else {
+    //         speed = -30;
+    //     }
+        
+    //     let move = setInterval(function() {
+    //         let scrollTop = Math.round(body.scrollTop || element.scrollTop);
+
+    //         if (
+    //             prevScrollTop === scrollTop ||
+    //             (to > from && scrollTop >= to) ||
+    //             (to < from && scrollTop <= to)
+    //         ) {
+    //             clearInterval(move);
+    //             history.replaceState(history.state, document.title, location.href.replace(/#.*$/g, '') + hash);
+    //         } else {
+    //             body.scrollTop += speed;
+    //             element.scrollTop += speed;
+    //             prevScrollTop = scrollTop;
+    //         }
+    //     }, timeInterval);
+    // };
+
+    // calcScroll();
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrollingSlow);
 
 /***/ }),
 
@@ -219,10 +347,12 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/showModalWind */ "./js/modules/showModalWind.js");
 /* harmony import */ var _modules_filtrationOfWorks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/filtrationOfWorks */ "./js/modules/filtrationOfWorks.js");
+/* harmony import */ var _modules_scrollingSlow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scrollingSlow */ "./js/modules/scrollingSlow.js");
 console.log('main.js Connected...')
 
 ;
 //import formsPostOnServ from './modules/formsPostOnServ'; // PHP Can't be Used -> FormsPree Account was created & Used
+
 
 
 
@@ -231,6 +361,7 @@ window.addEventListener('DOMContentLoaded', () => {
     (0,_modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__.default)();
     //formsPostOnServ(); // PHP Can't be Used -> FormsPree Account was created & Used
     (0,_modules_filtrationOfWorks__WEBPACK_IMPORTED_MODULE_1__.default)();
+    (0,_modules_scrollingSlow__WEBPACK_IMPORTED_MODULE_2__.default)('.pageup');
 
 })
 })();
