@@ -1,6 +1,6 @@
 
 const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
-    console.log("filtrationOfWorks.js Connected...");
+    console.log("filtrationOfWorks.js Connected... !!!");
 
     //// MENU BTNS Filtration VARS :
         const menu = document.querySelector('.works__nav'),
@@ -9,7 +9,11 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
             allBtn = menu.querySelector('.all'),
             websitesBtn = menu.querySelector('.websites'),
             reactBtn = menu.querySelector('.react'),
-            backendBtn = menu.querySelector('.backend');
+            backendBtn = menu.querySelector('.backend'),
+
+            loadMoreBtn = document.querySelector('.load_more_works');
+        let showMoreWorks = false;
+        let currentlyClicked = 'ALL';
     //
 
     //// PORTFOLIO Works VARS :
@@ -24,6 +28,7 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
 
 
     const filterElms = (elmsArr) => {
+        let iterator = 0;
 
         // Hide All
         allDivs.forEach( el => {
@@ -33,24 +38,77 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
         // notExistCurrently.style.display = 'none';
         // notExistCurrently.classList.remove('animated', 'fadeInUp');
 
-        // Show Certain
-        if(elmsArr) {
-            elmsArr.forEach( el => {
-                el.style.display = 'block';
-                el.classList.add('animated', 'fadeInUp');
-            })
-        } else {
-            // notExistCurrently.style.display = 'block';
-            // notExistCurrently.classList.add('animated', 'fadeInUp');
+        if(showMoreWorks) {
+            // Show All Works of Chosen Type
+
+            if(elmsArr) {
+                elmsArr.forEach( el => {
+                    el.style.display = 'block';
+                    el.classList.add('animated', 'fadeInUp');
+                })
+            } else {
+                // notExistCurrently.style.display = 'block';
+                // notExistCurrently.classList.add('animated', 'fadeInUp');
+            }
+
+        } else { //Btn ShowMoreWorks Wasn't Pushed
+
+            // Show 3 Works of Chosen Type
+            if(elmsArr) {
+                elmsArr.forEach( el => {
+                    if(iterator < 3) {
+                        el.style.display = 'block';
+                        el.classList.add('animated', 'fadeInUp');
+                        iterator++;
+                    }
+                    
+                })
+            } else {
+                // notExistCurrently.style.display = 'block';
+                // notExistCurrently.classList.add('animated', 'fadeInUp');
+            }
         }
+
+        
         
     }
 
     //// EVENT LISTENERS
-    allBtn.addEventListener( 'click' , () => { filterElms(allDivs) } );
-    websitesBtn.addEventListener( 'click' , () => { filterElms(websitesDivs) } );
-    reactBtn.addEventListener( 'click' , () => { filterElms(reactDivs) } );
-    backendBtn.addEventListener( 'click' , () => { filterElms(beckendDivs) } );
+    allBtn.addEventListener( 'click' , () => { filterElms(allDivs); currentlyClicked = 'ALL' } );
+    websitesBtn.addEventListener( 'click' , () => { filterElms(websitesDivs); currentlyClicked = 'WEBSITES' } );
+    reactBtn.addEventListener( 'click' , () => { filterElms(reactDivs); currentlyClicked = 'REACT' } );
+    backendBtn.addEventListener( 'click' , () => { filterElms(beckendDivs); currentlyClicked = 'BACKEND' } );
+
+    let active = false;
+    loadMoreBtn.addEventListener( 'click' , () => { 
+        showMoreWorks = !showMoreWorks;
+
+        switch(currentlyClicked) {
+            case 'ALL':
+                filterElms(allDivs);
+                break; 
+            case 'WEBSITES':
+                filterElms(websitesDivs);
+                break; 
+            case 'REACT':
+                filterElms(reactDivs);
+                break; 
+            case 'BACKEND':
+                filterElms(beckendDivs);
+                break;
+        }
+
+        if(active) {
+            active = false;
+            loadMoreBtn.classList.remove('active');
+        } else {
+            active = true;
+            loadMoreBtn.classList.add('active');
+        }
+        
+    });
+
+
     // Not Exist Currently
     // grandyBtn.addEventListener( 'click' , () => { filterElms() } );
     // grandFathBtn.addEventListener( 'click' , () => { filterElms() } );
