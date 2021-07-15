@@ -38,7 +38,7 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
         // notExistCurrently.style.display = 'none';
         // notExistCurrently.classList.remove('animated', 'fadeInUp');
 
-        if(showMoreWorks) {
+        if(showMoreWorks) { //Btn ShowMoreWorks WAS Pushed
             // Show All Works of Chosen Type
 
             if(elmsArr) {
@@ -56,7 +56,7 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
             // Show 3 Works of Chosen Type
             if(elmsArr) {
                 elmsArr.forEach( el => {
-                    if(iterator < 3) {
+                    if(iterator < 6) {
                         el.style.display = 'block';
                         el.classList.add('animated', 'fadeInUp');
                         iterator++;
