@@ -53,8 +53,8 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
         // notExistCurrently.classList.remove('animated', 'fadeInUp');
 
         if(showMoreWorks) { //Btn ShowMoreWorks WAS Pushed
-            // Show All Works of Chosen Type
 
+            // Show All Works of Chosen Type
             if(elmsArr) {
                 elmsArr.forEach( el => {
                     el.style.display = 'block';
