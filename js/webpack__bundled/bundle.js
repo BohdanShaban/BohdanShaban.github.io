@@ -71,6 +71,7 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
             if(elmsArr) {
                 elmsArr.forEach( el => {
                     if(iterator < 6) {
+
                         el.style.display = 'block';
                         el.classList.add('animated', 'fadeInUp');
                         iterator++;
