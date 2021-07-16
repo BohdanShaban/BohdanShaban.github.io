@@ -67,7 +67,7 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
 
         } else { //Btn ShowMoreWorks Wasn't Pushed
 
-            // Show 3 Works of Chosen Type
+            // Show 6 Works of Chosen Type
             if(elmsArr) {
                 elmsArr.forEach( el => {
                     if(iterator < 6) {
@@ -93,7 +93,8 @@ const filtrationOfWorks = ( ) => { // Imperative Style (with no Args)
     websitesBtn.addEventListener( 'click' , () => { filterElms(websitesDivs); currentlyClicked = 'WEBSITES' } );
     reactBtn.addEventListener( 'click' , () => { filterElms(reactDivs); currentlyClicked = 'REACT' } );
     backendBtn.addEventListener( 'click' , () => { filterElms(beckendDivs); currentlyClicked = 'BACKEND' } );
-
+    
+    // SHOW MORE WORKS BTN
     let active = false;
     loadMoreBtn.addEventListener( 'click' , () => { 
         showMoreWorks = !showMoreWorks;
