@@ -1,12 +1,19 @@
 // main: ../main_style.less
 
+
 .burger_menu {
     width: 30px;
     height: 30px;
+
+    display: none;
+
+    @media @mobile {
+        display: block;
+    }
 }
 
 .burger_img {
     display: block;
-    min-width: 100%;
+    max-width: 100%;
     height: auto;
 }

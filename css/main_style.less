@@ -1,19 +1,16 @@
-// compress: true
-// Единица rem задаёт размер относительно размера шрифта
-
-@import "vars";
+// compress: true, sourceMap: false
 
 html {
     font-size: 15px; // 1 rem (root em) -> 15px
 }
-
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    color: @black;
-}
+    font-size: 1rem; // Единица rem задаёт размер относительно размера шрифта
 
+    color: @black;
+
+}
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
@@ -28,27 +25,25 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Blocks  Imports (withOut Calling Just Replace) */
 //@import "blocks/intro";
-@import "blocks/container";
-@import "blocks/header";
-@import "blocks/user";
-@import "blocks/nav";
-@import "blocks/btns";
-@import "blocks/intro";
-@import "blocks/social";
-@import "blocks/works";
-@import "blocks/portflolio";
-@import "blocks/work";
-@import "blocks/skills";
-@import "blocks/footer";
-@import "blocks/modal";
-@import "blocks/modal-work";
-@import "blocks/modal-contact";
-@import "blocks/up-arrow";
-@import "blocks/burger_menu";
+@import "vars.less";
+@import "blocks/container.less";
+@import "blocks/header.less";
+@import "blocks/user.less";
+@import "blocks/nav.less";
+@import "blocks/btns.less";
+@import "blocks/intro.less";
+@import "blocks/social.less";
+@import "blocks/works.less";
+@import "blocks/portflolio.less";
+@import "blocks/work.less";
+@import "blocks/skills.less";
+@import "blocks/footer.less";
+@import "blocks/modal.less";
+@import "blocks/modal-work.less";
+@import "blocks/modal-contact.less";
+@import "blocks/up-arrow.less";
+@import "blocks/burger.less";
 
 
 // Utils & Helpers
-@import "blocks/helpers";
-
-
-
+@import "blocks/helpers.less";

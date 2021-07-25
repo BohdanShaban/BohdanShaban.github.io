@@ -2,6 +2,7 @@
 
 .portfolio {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 0 -1rem 3.8rem;
 }
@@ -9,6 +10,13 @@
 .portfolio__col {
     flex-basis: 33.33333% ;
     padding: 1rem;
+
+    @media @mobile {
+        flex-basis: 50%;
+    }
+    @media @mobile-sm {
+        flex-basis: 100%;
+    }
 }
 
 .invisible {

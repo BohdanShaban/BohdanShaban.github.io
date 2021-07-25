@@ -4,36 +4,38 @@
 
 .intro__inner {
     display: flex;
-    padding-top: 100px;
-    padding-bottom: 120px;
+    padding-top: 6.6rem;
+    padding-bottom: 8rem;
 
     //background: url("../images/symbols.png") right bottom no-repeat;
     border-bottom: 1px solid fade(@gray, 30%);
-
     position: relative;
+
+    @media tablet {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
 }
 
 .intro__content {
     width: 50%;
+
+    @media @mobile-sm {
+        width: 100%;
+    }
 }
 .intro__photo {
     width: 50%;
+
+    @media @mobile-sm {
+        display: none;
+    }
 }
-// .avatar_div {
-//     width: 335px;
-//     height: auto;
-// }
 
 .intro__img {
 
-    // !!!!!!!!!!!!!!!!!!!!!!
     display: block;
     width: 334px;
-    //max-width: 400px;
-    // !!!!!!!!!!!!!!!!!!!!!!
-
-
-    // !!! width: 400px;
     height: 400px;
     border-radius: 40%;
 
@@ -41,6 +43,10 @@
     bottom: 60px;
     right: 0;
     z-index: 1;
+
+    @media @tablet {
+        width: 300px;
+    }
 }
 
 // H1, H2 & Txts
@@ -48,16 +54,22 @@
     font-size: 2.13rem;
     color: @black;
     font-weight: 200;
-
     margin-bottom: 10px;
+
+    @media @tablet {
+        font-size: 1.5rem;
+    }
 }
 
 .intro__title {
     margin-bottom: 12px;
-
     font-size: 3rem;
     color: @black;
     font-weight: 700;
+
+    @media @tablet {
+        font-size: 1.9rem;
+    }
 }
 
 .intro__txt {
