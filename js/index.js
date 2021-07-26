@@ -4,6 +4,8 @@ import showModalWind from './modules/showModalWind';
 //import formsPostOnServ from './modules/formsPostOnServ'; // PHP Can't be Used -> FormsPree Account was created & Used
 import filtrationOfWorks from './modules/filtrationOfWorks';
 import scrollingSlow from './modules/scrollingSlow';
+import toggleBurgerMenu from './modules/toggleBurgerMenu';
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -12,5 +14,6 @@ window.addEventListener('DOMContentLoaded', () => {
     //formsPostOnServ(); // PHP Can't be Used -> FormsPree Account was created & Used
     filtrationOfWorks();
     scrollingSlow('.pageup');
+    toggleBurgerMenu();
 
 })

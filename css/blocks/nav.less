@@ -3,12 +3,29 @@
 .nav {
     
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; // Because Habe nav__link 
     align-items: center;
     height: 100%;
 
     @media @mobile {
         display: none;
+
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 1000;
+
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        text-align: center;
+
+        &.show {
+            display: flex;
+        }
     }
 }
 
@@ -57,5 +74,11 @@
             background-color: @black;
             color: @white;
         }
+    }
+
+    @media @mobile {
+        width: 100%;
+        margin-left: 0;
+        padding: .5rem 1rem;
     }
 }

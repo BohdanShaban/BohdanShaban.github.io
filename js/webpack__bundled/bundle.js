@@ -336,11 +336,46 @@ const showModalWind = () => {
     
     bindModalWind( '.hire_me_btn',  '.popup__hire_me',  '.popup__hire_me .modal__close' );
     //bindModalWind( '.phone_link',  '.popup',  '.popup .popup_close' );
-
+    
     //showModalByTime( '.popup__hire_me',  10000 );
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showModalWind);
+
+/***/ }),
+
+/***/ "./js/modules/toggleBurgerMenu.js":
+/*!****************************************!*\
+  !*** ./js/modules/toggleBurgerMenu.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+
+
+const toggleBurgerMenu = () => {
+    console.log("toggleBurgerMenu.js Connected...");
+
+    const burgerBtn = document.querySelector('#burgerToggleID'),
+          navPannel = document.querySelector('#nav');
+    console.log(navPannel);
+
+    burgerBtn.addEventListener( 'click' , (e) => {
+        if (e.target ) {  e.preventDefault(); }
+
+        // Toggle .show class When Btn Pushed
+        if (navPannel.matches('.show') ) {
+            navPannel.classList.remove('show');
+        } else {
+            navPannel.classList.add('show');
+        }
+    })
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleBurgerMenu);
 
 /***/ })
 
@@ -410,10 +445,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_showModalWind__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/showModalWind */ "./js/modules/showModalWind.js");
 /* harmony import */ var _modules_filtrationOfWorks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/filtrationOfWorks */ "./js/modules/filtrationOfWorks.js");
 /* harmony import */ var _modules_scrollingSlow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scrollingSlow */ "./js/modules/scrollingSlow.js");
+/* harmony import */ var _modules_toggleBurgerMenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/toggleBurgerMenu */ "./js/modules/toggleBurgerMenu.js");
 console.log('main.js Connected...')
 
 ;
 //import formsPostOnServ from './modules/formsPostOnServ'; // PHP Can't be Used -> FormsPree Account was created & Used
+
+
 
 
 
@@ -424,6 +462,7 @@ window.addEventListener('DOMContentLoaded', () => {
     //formsPostOnServ(); // PHP Can't be Used -> FormsPree Account was created & Used
     (0,_modules_filtrationOfWorks__WEBPACK_IMPORTED_MODULE_1__.default)();
     (0,_modules_scrollingSlow__WEBPACK_IMPORTED_MODULE_2__.default)('.pageup');
+    (0,_modules_toggleBurgerMenu__WEBPACK_IMPORTED_MODULE_3__.default)();
 
 })
 })();
