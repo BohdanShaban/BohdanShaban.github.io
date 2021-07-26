@@ -8,7 +8,6 @@
 .footer__credits {
     display: flex;
     justify-content: space-between;
-
     align-items: center;
 
     @media @tablet {
@@ -18,7 +17,7 @@
     }
 
     
-    // @media @mobile-sm {
+    // @media @mobile {
     //     flex-direction: column;
     // }
 }
@@ -58,6 +57,9 @@
         @media @tablet {
             margin: 0 .5rem;
         }
+    }
+    @media @mobile {
+        display: none;
     }
 }
 
